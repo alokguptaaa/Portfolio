@@ -1,1 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alok Gupta | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background: #050816; color: white; overflow-x: hidden; width: 100%; min-height: 100vh; }
+        nav { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, .1); border-radius: 20px; z-index: 1000; }
+        .logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; }
+        nav ul { display: flex; gap: 25px; list-style: none; }
+        nav ul a { text-decoration: none; color: white; font-weight: 500; transition: .3s; }
+        nav ul a:hover { color: #38bdf8; }
+        .hero { height: 100vh; width: 100%; background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)), url("./alok1.jpg"); background-size: cover; background-position: center 15%; background-repeat: no-repeat; display: flex; justify-content: center; align-items: center; text-align: center; padding: 20px; position: relative; }
+        .hero-content { max-width: 800px; z-index: 10; position: relative; }
+        .hero h1 { font-size: 5rem; font-weight: 700; letter-spacing: 2px; text-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+        .hero h2 { margin-top: 20px; font-size: 2rem; color: #38bdf8; min-height: 45px; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+        .hero p { margin-top: 25px; font-size: 1.2rem; color: #cbd5e1; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+        .btns { margin-top: 35px; }
+        .btn { display: inline-block; padding: 14px 30px; margin: 10px; border-radius: 40px; text-decoration: none; font-weight: 600; transition: .4s; cursor: pointer; border: none; }
+        .primary { background: #38bdf8; color: #050816; }
+        .secondary { border: 2px solid white; color: white; background: transparent; }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4); }
+        section { padding: 80px 10%; width: 100%; position: relative; clear: both; }
+        .section-title { font-size: 2.8rem; text-align: center; margin-bottom: 40px; }
+        .about { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-img img { width: 100%; height: auto; border-radius: 20px; box-shadow: 0 0 30px rgba(56, 189, 248, .15); }
+        .about-text p { font-size: 1.1rem; line-height: 1.8; color: #cbd5e1; }
+        .skills-grid, .credentials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .icon-card { background: #0f172a; padding: 30px 20px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, .05); text-align: center; transition: .3s ease; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; cursor: pointer; position: relative; overflow: hidden; }
+        .icon-card:hover { border-color: #38bdf8; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.1); }
+        .icon-card i { font-size: 3.5rem; transition: 0.3s; }
+        .icon-card img { width: 60px; height: 60px; object-fit: contain; border-radius: 6px; }
+        .icon-card span { font-size: 0.95rem; font-weight: 500; color: #cbd5e1; line-height: 1.3; }
+        .icon-card .sub-text { font-size: 0.75rem; color: #64748b; margin-top: -10px; }
+        .view-badge { background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; font-weight: 600; border: 1px solid rgba(56, 189, 248, 0.3); margin-top: 5px; transition: 0.3s; }
+        .icon-card:hover .view-badge { background: #38bdf8; color: #050816; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+        .project-card { background: #0f172a; padding: 30px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, .05); transition: .3s; display: flex; flex-direction: column; justify-content: space-between; }
+        .project-card:hover { border-color: #38bdf8; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(56, 189, 248, 0.05); }
+        .project-card h3 { font-size: 1.3rem; color: white; margin-bottom: 12px; }
+        .project-card p { font-size: 0.9rem; color: #94a3b8; line-height: 1.6; margin-bottom: 20px; }
+        .project-meta { font-size: 0.75rem; color: #e2e8f0; background: rgba(255, 255, 255, 0.05); padding: 5px 10px; border-radius: 6px; display: inline-block; margin-bottom: 15px; width: fit-content; }
+        .project-actions { margin-top: auto; }
+        .card-btn { display: block; width: 100%; text-align: center; padding: 12px; background: transparent; border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; text-decoration: none; font-weight: 500; border-radius: 8px; font-size: 0.9rem; transition: 0.3s; cursor: pointer; }
+        .card-btn:hover { background: #38bdf8; color: #050816; }
+        .modal-request-btn { display: block; text-align: center; padding: 14px; background: transparent; border: 1px dashed rgba(255, 255, 255, 0.3); color: #cbd5e1; text-decoration: none; font-weight: 500; border-radius: 8px; margin-top: 25px; transition: 0.3s; }
+        .modal-request-btn:hover { background: rgba(255, 255, 255, 0.08); color: white; border-color: white; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 15px; cursor: pointer; transition: .3s; }
+        .gallery img:hover { transform: scale(1.02); }
+        .contact-box { text-align: center; font-size: 1.2rem; line-height: 2.5; }
+        .contact-box a { color: #38bdf8; text-decoration: none; }
+        footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; }
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 8, 22, 0.95); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: 0.3s; }
+        .modal.active { opacity: 1; pointer-events: auto; }
+        .modal-content { max-width: 90%; max-height: 85%; border-radius: 10px; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2); }
+        .text-modal-box { background: #0f172a; padding: 40px; border-radius: 20px; max-width: 650px; width: 90%; border: 1px solid rgba(255, 255, 255, 0.1); position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .text-modal-box h2 { color: #38bdf8; margin-bottom: 20px; font-size: 1.8rem; }
+        .text-modal-box p { color: #cbd5e1; line-height: 1.8; font-size: 1rem; margin-bottom: 15px; }
+        .close-modal { position: absolute; top: 20px; right: 25px; font-size: 2.2rem; color: #64748b; cursor: pointer; transition: 0.3s; }
+        .close-modal:hover { color: white; }
+        @media(max-width: 900px) { .hero h1 { font-size: 3rem; } .hero { background-position: center center; } .about { grid-template-columns: 1fr; } nav ul { display: none; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ALOK GUPTA</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#credentials">Credentials</a></li>
+            <li><a href="#gallery">Photography</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ALOK GUPTA</h1>
+            <h2 id="typing"></h2>
+            <p>Electronics Engineering Student & Aspiring Filmmaker</p>
+            <div class="btns">
+                <a href="#projects" class="btn primary">View My Work</a>
+                <a href="YOUR_PUBLIC_GOOGLE_DRIVE_CV_LINK" target="_blank" class="btn secondary">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about">
+            <div class="about-img">
+                <img src="./alok2.jpg" alt="Alok Gupta">
+            </div>
+            <div class="about-text">
+                <p>
+                    I am an Electronics Engineering student who loves creating hardware systems and capturing creative visual stories. I spend my time programming logic boards, exploring front-end interfaces, and designing symbolic setups for cinematic frames.
+                    <br><br>
+                    My goal is to share my learning journey, build working technical models, and display creative concepts cleanly.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="skills-grid">
+            <div class="icon-card"><i class="devicon-html5-plain colored" style="color: #e34c26;"></i><span>HTML5</span></div>
+            <div class="icon-card"><i class="devicon-css3-plain colored" style="color: #264de4;"></i><span>CSS3</span></div>
+            <div class="icon-card"><i class="devicon-javascript-plain colored" style="color: #f0db4f;"></i><span>JavaScript</span></div>
+            <div class="icon-card"><i class="devicon-c-plain colored" style="color: #a8b9cc;"></i><span>C Language</span></div>
+            <div class="icon-card"><i class="devicon-python-plain colored" style="color: #3776ab;"></i><span>Python</span></div>
+            <div class="icon-card"><i class="devicon-embeddedc-plain colored" style="color: #00599c;"></i><span>Embedded C</span></div>
+            <div class="icon-card"><i class="devicon-arduino-plain colored" style="color: #00979d;"></i><span>IoT & Sensors</span></div>
+            <div class="icon-card"><i class="devicon-linux-plain colored" style="color: #f5f5f5;"></i><span>Circuit Design</span></div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div>
+                    <span class="project-meta">Electronics & Hardware</span>
+                    <h3>🚗 Path Following Car</h3>
+                    <p>An autonomous embedded vehicle prototype designed for smart path tracking navigation.</p>
+                </div>
+                <div class="project-actions">
+                    <button class="card-btn" onclick="openProjectDetails('car')">View Details →</button>
+                </div>
+            </div>
+            <div class="project-card">
+                <div>
+                    <span class="project-meta">Web Development (Practice)</span>
+                    <h3>🌍 Travel Concept Layout</h3>
+                    <p>A minimalist design practice grid built to master fluid responsive interfaces.</p>
+                </div>
+                <div class="project-actions">
+                    <button class="card-btn" onclick="openProjectDetails('webdev')">View Details →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="credentials">
+        <h2 class="section-title">Certificates & Offers</h2>
+        <div class="credentials-grid">
+            <div class="icon-card" onclick="openImage('https://lh3.googleusercontent.com/d/ItHHVJj9BzVS74F9z')">
+                <img src="https://lh3.googleusercontent.com/d/ItHHVJj9BzVS74F9z" alt="NIELIT" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135755.png'">
+                <span>VLSI Design</span><span class="sub-text">NIELIT Calicut</span><div class="view-badge">View</div>
+            </div>
+            <div class="icon-card" onclick="openImage('https://lh3.googleusercontent.com/d/eV3m6v5z4A4o0h6xb')">
+                <img src="https://lh3.googleusercontent.com/d/eV3m6v5z4A4o0h6xb" alt="Scortek" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1055/1055666.png'">
+                <span>Embedded System</span><span class="sub-text">AKTU & Scortek</span><div class="view-badge">View</div>
+            </div>
+            <div class="icon-card" onclick="openImage('https://lh3.googleusercontent.com/d/eV3m6v5z4A4o0h6xb')">
+                <img src="https://lh3.googleusercontent.com/d/eV3m6v5z4A4o0h6xb" alt="Scortek" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1055/1055666.png'">
+                <span>Career Readiness</span><span class="sub-text">REC Basti & Scortek</span><div class="view-badge">View</div>
+            </div>
+            <div class="icon-card" onclick="openImage('https://lh3.googleusercontent.com/d/ZfEF9Sdti7gvCW1z8')">
+                <img src="https://lh3.googleusercontent.com/d/ZfEF9Sdti7gvCW1z8" alt="India Space Lab" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2534/2534183.png'">
+                <span>Space Tech Offer</span><span class="sub-text">India Space Lab</span><div class="view-badge">View</div>
+            </div>
+            <div class="icon-card" onclick="openImage('https://lh3.googleusercontent.com/d/akQWbNDki4sF7ZC3X')">
+                <img src="https://lh3.googleusercontent.com/d/akQWbNDki4sF7ZC3X" alt="Navyug Navachar" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2681/2681826.png'">
+                <span>Content Intern Offer</span><span class="sub-text">Navyug Foundation</span><div class="view-badge">View</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title">Photography & Frames</h2>
+        <div class="gallery">
+            <img src="./photo1.jpg" alt="Click 1" onclick="openImage(this.src)">
+            <img src="./photo2.jpg" alt="Click 2" onclick="openImage(this.src)">
+            <img src="./photo3.jpg" alt="Click 3" onclick="openImage(this.src)">
+            <img src="./photo4.jpg" alt="Click 4" onclick="openImage(this.src)">
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Connect With Me</h2>
+        <div class="contact-box">
+            <p>📧 Email: <a href="mailto:alokgupta68254@gmail.com">alokgupta68254@gmail.com</a></p>
+            <p>📱 Phone: <a href="tel:+919696184904">+91 9696184904</a></p>
+            <p>🔗 Professional: <a href="https://linkedin.com" target="_blank">LinkedIn</a> | <a href="https://github.com" target="_blank">GitHub</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Alok Gupta. Built to Showcase.</p>
+    </footer>
+
+    <div class="modal" id="imageModal">
+        <span class="close-modal" onclick="closeModal('imageModal')">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <div class="modal" id="projectTextModal">
+        <div class="text-modal-box">
+            <span class="close-modal" onclick="closeModal('projectTextModal')">&times;</span>
+            <h2 id="modalProjectTitle">Project Title</h2>
+            <div id="modalProjectDesc">Detailed description text will live here dynamically.</div>
+        </div>
+    </div>
+
+    <script>
+        const text = "Electronics Student | Aspiring Filmmaker";
+        let i = 0; function type() { if (i < text.length) { document.getElementById("typing").innerHTML += text.charAt(i); i++; setTimeout(type, 60); } } window.onload = type;
+
+        function openImage(imgSrc) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImg");
+            modal.classList.add("active");
+            modalImg.src = imgSrc;
+        }
+
+        function openProjectDetails(projectKey) {
+            const modal = document.getElementById("projectTextModal");
+            const titleElem = document.getElementById("modalProjectTitle");
+            const descElem = document.getElementById("modalProjectDesc");
+            
+            if(projectKey === 'car') {
+                titleElem.innerText = "🚗 Prototype of Path Following Car";
+                descElem.innerHTML = `
+                    <p>This autonomous vehicle system utilizes specialized IR array sensors to process reflective track paths. Programmed on an embedded microcontroller logic architecture, the system coordinates custom speed configurations and micro-steering adjustments via H-Bridge motor drivers.</p>
+                    <p><strong>Technical Scope:</strong> Real-time hardware sensory synchronization, signal processing loops, and independent battery asset distribution.</p>
+                    <a href="mailto:alokgupta68254@gmail.com?subject=Request for Path Following Car Synopsis PDF&body=Hi Alok,%0A%0AI found your engineering portfolio quite impressive. I am genuinely interested in your Path Following Car project and would love to review the official Synopsis PDF for learning/evaluation purposes.%0A%0AThanks!" class="modal-request-btn">📩 Request Synopsis PDF (Via Mail)</a>
+                `;
+            } else if(projectKey === 'webdev') {
+                titleElem.innerText = "🌍 Travel & Trekking Design Concept";
+                descElem.innerHTML = `
+                    <p>This frontend layout was created completely as a UI benchmark simulation to master structural alignment grids. It does not interface with a live travel backend API system, but serves as an absolute sandbox playground for testing interactive scroll transitions, custom component containers, and fluid responsiveness patterns.</p>
+                    <a href="mailto:alokgupta68254@gmail.com?subject=Request for Frontend HTML Source Code&body=Hi Alok,%0A%0AI would like to review the baseline HTML code layout used for your Travel & Trekking practice project for code-quality evaluation.%0A%0AThank you!" class="modal-request-btn">📩 Fetch HTML Code (Via Mail)</a>
+                `;
+            }
+            modal.classList.add("active");
+        }
+
+        function closeModal(modalId) { document.getElementById(modalId).classList.remove("active"); }
+    </script>
+</body>
+  </html>
 
